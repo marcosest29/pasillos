@@ -1,0 +1,104 @@
+<header class="navbar navbar-expand-md">
+  <div class="container">
+    <div class="row w-100">
+      <div class="col-md-3">
+        <span class="h3 textcolorcorp ">Ubicacion de Pasillos</span>
+      </div>
+      <div class="col-md">
+        <div class="d-flex flex-row">
+          <div class="botonhome">
+            <a href="#">
+              <img src="assets/images/home.png" alt="Inicio">
+            </a>
+          </div>
+<!--          <div *ngIf="pantalla==='inicio'">-->
+<!--&lt;!&ndash;            <p-menu #menu [model]="items" [popup]="true"></p-menu>&ndash;&gt;-->
+<!--            <a class="hand" title="Agregar">-->
+<!--              <img (click)="menu.toggle($event)" src="assets/images/plusicon.png" alt="Agregar">-->
+<!--            </a>-->
+<!--          </div>-->
+          <div *ngIf="pantalla==='ubicaciones'">
+            <a  class="hand ms-2" >
+              <i class="fa-solid fa-plus" style="color:red;font-size:25px;margin-top:5px" (click)="gotoUbi()"></i>
+            </a>
+          </div>
+<!--          <div *ngIf="pantalla==='creartarea2'">-->
+<!--            <a  class="hand ms-2" >-->
+<!--              <i class="fas fa-sync-alt" style="color:red;font-size:25px;margin-top:5px"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <div *ngIf="pantalla==='creartarea1'||pantalla==='creartarea2' ">-->
+<!--            <a  class="hand ms-2" >-->
+<!--              <i class="fa-solid fa-circle-xmark" style="color:red;font-size:25px;margin-top:5px"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+          <div *ngIf="pantalla==='ubicaciones'||pantalla==='crearubicaciones'">
+            <a  class="hand ms-2" >
+              <i class="fas fa-file-excel" style="color:red;font-size:25px;margin-top:5px"></i>
+            </a>
+          </div>
+<!--          <div *ngIf="pantalla==='detalle1'">-->
+<!--            <a  class="hand ms-2" >-->
+<!--              <i class="fa-solid fa-bell" style="color:red;font-size:25px;margin-top:5px"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <div *ngIf="pantalla==='tarealocal'||pantalla==='tarealocaldetalle'">-->
+<!--            <a  class="hand ms-2" >-->
+<!--              <i class="fa-solid fa-play" style="color:red;font-size:25px;margin-top:5px"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <div *ngIf="pantalla==='tarealocal'||pantalla==='tarealocaldetalle'">-->
+<!--            <a  class="hand ms-2" >-->
+<!--              <i class="fa-solid fa-pause" style="color:red;font-size:25px;margin-top:5px"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+          <!--          <div *ngIf="pantalla==='detalle2'||pantalla==='detalle1'">-->
+          <!--            <a  class="hand ms-2" >-->
+          <!--              <i class="fa-solid fa-trash" style="color:red;font-size:25px;margin-top:5px"></i>-->
+          <!--            </a>-->
+          <!--          </div>-->
+<!--          <div *ngIf="pantalla==='tarealocal'||pantalla==='tarealocaldetalle'">-->
+<!--            <a  class="hand ms-2" >-->
+<!--              <i class="fa-solid fa-check" style="color:red;font-size:25px;margin-top:5px" ></i>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <div *ngIf="pantalla==='tarealocaldetalle'">-->
+<!--            <a  class="hand ms-2" >-->
+<!--              <i class="fa-solid fa-user-check" style="color:red;font-size:25px;margin-top:5px" (click)="showColaborators()"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="separadorcorp whitetextcolor">
+      {{titulo}}
+    </div>
+  </div>
+</div>
+
+<main style="height: 100%;">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="mt-5">
+  <div class="container">
+    <div class="row fondocorp corpfooter">
+      <div class="col-md-6">
+        Usuario: (smxadmin) SILVIA CARLINA ABBOUD ABUD (ADMINISTRADOR)
+      </div>
+      <div class="col-md-2">
+        Perfil: ANALISTA DESARROLLO
+      </div>
+      <div class="col-md-2">
+        Formato de negocio:OFICINAS
+      </div>
+      <div class="col-md">
+        Versión: 1.0.0
+      </div>
+    </div>
+  </div>
+</footer>

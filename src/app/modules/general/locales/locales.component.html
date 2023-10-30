@@ -1,0 +1,91 @@
+<div class="container mt-3">
+  <p-toast></p-toast>
+
+  <div class="alldiv">
+    <section class="barra border p-3">
+      <div class="me-3">
+        <p class="textcolorcorp">Filtros de busqueda</p>
+        <p class="mt-1">Codigo de local:</p>
+        <div class="p-fluid">
+          <input type="text" class="form-control" [(ngModel)]="codlocal" />
+        </div>
+        <p class="mt-1">Formato:</p>
+        <div class="p-fluid">
+          <p-multiSelect [options]="formatos" [(ngModel)]="selectedFormato" optionLabel="nombre"
+                      placeholder="Seleccionar"></p-multiSelect>
+        </div>
+
+        <p class="mt-1">Zona:</p>
+        <div class="p-fluid">
+          <p-multiSelect [options]="zonas" [(ngModel)]="selectedZona" optionLabel="nombre"
+                      placeholder="Seleccionar"></p-multiSelect>
+        </div>
+
+        <p class="mt-1">Locales:</p>
+        <div class="p-fluid">
+          <p-multiSelect [options]="locales" [(ngModel)]="selectedLocales" optionLabel="nombre"
+                      placeholder="Seleccionar"></p-multiSelect>
+        </div>
+        <p class="mt-1">Estado:</p>
+        <div class="p-fluid">
+          <!--                    <input type="text" class="form-control" [(ngModel)]="estado" />-->
+          <p-multiSelect [(ngModel)]="estado" [options]="estados"
+                         inputId="local"
+                         optionLabel="nombre" placeholder="Selecione estados"></p-multiSelect>
+        </div>
+        <p class="mt-1">Estado operativo:</p>
+        <div class="p-fluid">
+          <!--                    <input type="text" class="form-control" [(ngModel)]="estado" />-->
+          <p-multiSelect [(ngModel)]="selectedoperativos" [options]="operativos"
+                         inputId="local"
+                         optionLabel="nombre" placeholder="Selecione estado operativo"></p-multiSelect>
+        </div>
+        <div class="mt-2 d-flex flex-row-reverse bloquefiltro">
+          <button class="btn btn-danger" (click)="doSearch()">Buscar</button>
+        </div>
+      </div>
+    </section>
+    <section class="main ps-2">
+      <div>
+        <p-table [value]="articulos" [tableStyle]="{ 'min-width': '50rem' }">
+          <ng-template pTemplate="header">
+            <tr>
+<!--              <th></th>-->
+              <th>N</th>
+              <th>Formato</th>
+              <th>Zona</th>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Estado</th>
+              <th>Estado Operativo</th>
+              <th>Acciones</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-tarea let-rowIndex="rowIndex">
+            <tr>
+<!--              <td><p-checkbox name="tareasgrupo" [binary]="true" [(ngModel)]="selectedtareas"></p-checkbox></td>-->
+              <td>{{ rowIndex+1 }}</td>
+              <td>{{ tarea.formato }}</td>
+              <td>{{ tarea.zona }}</td>
+              <td>{{ tarea.codigo }}</td>
+              <td>{{ tarea.nombre }}</td>
+              <td>{{ tarea.estado }}</td>
+              <td>{{ tarea.operativo }}</td>
+              <td class="d-flex">
+                <button class="btn btn-sm btn-outline-danger" (click)="gotoEdit()">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" (click)="gotoNone()">
+                  <i class="fa-solid fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" (click)="gotoNone()">
+                  <i class="fa-solid fa-x"></i>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </section>
+  </div>
+</div>
