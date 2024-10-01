@@ -31,6 +31,10 @@ export class CrearubicacionesComponent implements OnInit {
   referenciasdetalle: Array<any> = [];
   referenciasdetalleSelected:any;
   picking:any;
+  checked:any=null;
+  articulos:Array<any> = [];
+  isShowModalColaborators:boolean=false;
+
   ngOnInit(): void {
     this.mymsgservice.publishMessage('pantalla-crearubicaciones');
   }
@@ -57,5 +61,19 @@ export class CrearubicacionesComponent implements OnInit {
   }
 
   gotoNone(){
+  }
+
+  add(){
+    this.nodeService.getArticulos().then(t => {
+      this.articulos = t;
+    });
+  }
+
+  showColaborators(){
+    // this.selectedColaborator = col;
+    this.isShowModalColaborators=true;
+  }
+  closeViewColaborators(){
+    this.isShowModalColaborators=false;
   }
 }

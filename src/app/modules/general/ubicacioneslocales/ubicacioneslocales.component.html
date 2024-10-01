@@ -5,26 +5,42 @@
     <section class="barra border p-3">
       <div class="me-3">
         <p class="textcolorcorp">Filtros de busqueda</p>
-        <p class="mt-1">Ubicacion:</p>
+        <p class="mt-1">Codigo de barras:</p>
         <div class="p-fluid">
           <input type="text" class="form-control" [(ngModel)]="codlocal" />
         </div>
-        <p class="mt-1">Clasificacion:</p>
+        <p class="mt-1">SECCION:</p>
+        <div class="p-fluid">
+          <p-multiSelect [options]="clasificacion" [(ngModel)]="selectedClasificacion" optionLabel="nombre"
+                      placeholder="Seleccionar"></p-multiSelect>
+        </div>
+        <p class="mt-1">ESTADO:</p>
         <div class="p-fluid">
           <p-multiSelect [options]="clasificacion" [(ngModel)]="selectedClasificacion" optionLabel="nombre"
                       placeholder="Seleccionar"></p-multiSelect>
         </div>
 
-        <p class="mt-1">Sublasificacion:</p>
+        <p class="mt-1">UBICACION POR ARTICULO:</p>
         <div class="p-fluid">
-          <p-multiSelect [options]="subclasificacion" [(ngModel)]="selectedSubclasificacion" optionLabel="nombre"
-                      placeholder="Seleccionar"></p-multiSelect>
+          <!-- <p-multiSelect [options]="subclasificacion" [(ngModel)]="selectedSubclasificacion" optionLabel="nombre"
+                      placeholder="Seleccionar"></p-multiSelect> -->
+                      <!-- <p-radioButton [(ngModel)]="selectedSubclasificacion" variant="filled"></p-radioButton> -->
+                      <div>
+                        <label class="col-2">
+                          <input type="radio" name="option" value="yes" [(ngModel)]="selectedSubclasificacion" />
+                          SI
+                        </label>
+                        <label class="col-2">
+                          <input type="radio" name="option" value="no" [(ngModel)]="selectedSubclasificacion" />
+                          NO
+                        </label>
+                      </div>
         </div>
-        <p class="mt-1">Picking:</p>
+        <!-- <p class="mt-1">Picking:</p>
         <div class="p-fluid">
           <p-inputNumber [(ngModel)]="picking" [max]="800" [min]="0"
                          [showButtons]="true" inputId="minmax-buttons" mode="decimal"
-          ></p-inputNumber>        </div>
+          ></p-inputNumber>        </div> -->
         <div class="mt-2 d-flex flex-row-reverse bloquefiltro">
           <button class="btn btn-danger" (click)="doSearch()">Buscar</button>
         </div>
@@ -43,17 +59,17 @@
       </div>
 
       <div>
-        <p-table [value]="articulos" [tableStyle]="{ 'min-width': '90rem' }">
+        <p-table [value]="articulos" [tableStyle]="{ 'min-width': '50rem' }">
           <ng-template pTemplate="header">
             <tr>
               <!--              <th></th>-->
               <th>N</th>
-              <th>Ubicacion base</th>
-              <th>Ubicacion completa</th>
-              <th>Clasificaciones contenidas</th>
-              <th>Subclasificaciones</th>
+              <th>Seccion</th>
+              <th>Ubicacion </th>
+              <th>Ubicacion por articulo</th>
+              <!-- <th>Subclasificaciones</th>
               <th>Contiene</th>
-              <th>Picking</th>
+              <th>Picking</th> -->
               <th>Acciones</th>
             </tr>
           </ng-template>
@@ -64,9 +80,9 @@
               <td>{{ tarea.base }}</td>
               <td>{{ tarea.completa }}</td>
               <td>{{ tarea.clasificaciones }}</td>
-              <td>{{ tarea.subclasificaciones }}</td>
+              <!-- <td>{{ tarea.subclasificaciones }}</td>
               <td>{{ tarea.contiene }}</td>
-              <td>{{ tarea.picking }}</td>
+              <td>{{ tarea.picking }}</td> -->
               <td class="d-flex">
                 <button class="btn btn-sm btn-outline-danger" (click)="gotoEdit()">
                   <i class="fa-solid fa-eye"></i>

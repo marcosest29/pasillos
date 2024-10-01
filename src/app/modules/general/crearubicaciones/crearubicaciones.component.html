@@ -6,28 +6,35 @@
         <p class="textcolorcorp">Datos generales</p>
         <div class="row" style="margin:10px">
           <div class="col-2">
-            Ubicado en:
+            Seccion:
           </div>
-          <div class="col-5">
+          <div class="col-10">
             <p-dropdown [(ngModel)]="ubicadoSelected" [options]="ubicados"
-                        optionLabel="nombre" placeholder="Selecione ubicacion"></p-dropdown>
+                        optionLabel="nombre" placeholder="Selecione seccion"></p-dropdown>
           </div>
-          <div class="col-5">
+          <!-- <div class="col-5">
             <p-dropdown [(ngModel)]="ubicadodetalleSelected" [options]="ubicadosdetalle"
                         optionLabel="nombre" ></p-dropdown>
-          </div>
+          </div> -->
           <div class="col-2">
-            Referencia:
+            Ubicacion:
           </div>
-          <div class="col-5">
-            <p-dropdown [(ngModel)]="referenciasSelected" [options]="referencias"
-                        optionLabel="nombre" placeholder="Selecione referencia"></p-dropdown>
+          <div class="col-4">
+            <p-dropdown [(ngModel)]="referenciasSelected" [options]="ubicados"
+                        optionLabel="nombre" placeholder="Selecione ubicacion"></p-dropdown>
           </div>
-          <div class="col-5">
+          <!-- <div class="col-5">
             <p-dropdown [(ngModel)]="referenciasdetalleSelected" [options]="referenciasdetalle"
                         optionLabel="nombre" ></p-dropdown>
-          </div>
+          </div> -->
           <div class="col-2">
+            Detalle:
+          </div>
+          <div class="col-4">
+            <p-dropdown [(ngModel)]="referenciasdetalleSelected" [options]="referenciasdetalle"
+                        optionLabel="nombre" placeholder="Selecione detalle"></p-dropdown>
+          </div> 
+          <!-- <div class="col-2">
             Priorizacion de picking:
           </div>
           <div class="col-5">
@@ -38,17 +45,38 @@
           <div class="col-5">
             La ubicacion contiene
             <textarea class="form-control" rows="3"></textarea>
+          </div> -->
+          <div class="col-2">
+            Ubicacion por articulo:
           </div>
+          <div class="col-4">
+            <p-checkbox [(ngModel)]="checked" 
+            [binary]="true" 
+            inputId="binary"></p-checkbox>
+          </div> 
         </div>
       </section>
     </div>
     <div class="row border ">
-      <p class="textcolorcorp">Clasificaciones asignadas</p>
+      <!-- <p class="textcolorcorp">Articulos asignados</p> -->
       <div class="col-4">
         <section class=" border p-3">
           <div class="me-3">
-            <p class="textcolorcorp">Seleccione</p>
-            <p class="mt-1">Clasificacion:</p>
+            <div class="row">
+              <div class="col">
+                <p class="textcolorcorp">Seleccione articulos</p>
+              </div>
+              <div class="col">
+                <a  class="hand ms-2" >
+                  <i class="fas fa-file-excel" style="color:red;font-size:25px;margin-top:5px" (click)="showColaborators()"></i>
+                </a>
+              </div>
+            </div>
+            <p class="mt-1">Codigo de articulo:</p>
+        <div class="p-fluid">
+          <input type="text" class="form-control" [(ngModel)]="selectedClasificacion" />
+        </div>
+            <!-- <p class="mt-1">Clasificacion:</p>
             <div class="p-fluid">
               <p-multiSelect [options]="clasificacion" [(ngModel)]="selectedClasificacion" optionLabel="nombre"
                              placeholder="Seleccionar"></p-multiSelect>
@@ -58,44 +86,38 @@
             <div class="p-fluid">
               <p-multiSelect [options]="subclasificacion" [(ngModel)]="selectedSubclasificacion" optionLabel="nombre"
                              placeholder="Seleccionar"></p-multiSelect>
-            </div>
+            </div> -->
             <div class="mt-2 d-flex flex-row-reverse bloquefiltro">
-              <button class="btn btn-danger" (click)="gotoNone()">Aceptar</button>
+              <button class="btn btn-danger" (click)="add()">Agregar</button>
             </div>
           </div>
         </section>
       </div>
       <div class="col">
         <section class="ps-2">
-          <div *ngIf="selectedClasificacion">
-            <p-table [value]="selectedClasificacion" [tableStyle]="{ 'min-width': '50rem' }">
+          <div *ngIf="articulos">
+            <p-table [value]="articulos" [tableStyle]="{ 'min-width': '50rem' }">
               <ng-template pTemplate="header">
                 <tr>
                   <!--              <th></th>-->
                   <th>N</th>
-                  <th>Clasificaciones contenidas</th>
-                  <th>Subclasificaciones</th>
+                  <th>Codigo de barras</th>
+                  <th>Descripcion</th>
                   <th>Acciones</th>
                 </tr>
               </ng-template>
               <ng-template pTemplate="body" let-tarea let-rowIndex="rowIndex">
                 <tr>
                   <td>{{ rowIndex+1 }}</td>
+                  <td>{{ tarea.codigo }}</td>
                   <td>{{ tarea.nombre }}</td>
-                  <td>TODAS</td>
                   <td class="d-flex">
-                    <button class="btn btn-sm btn-outline-danger" (click)="gotoNone()">
-                      <i class="fa-solid fa-eye"></i>
-                    </button>
-                    <button class="btn btn-sm btn-outline-danger" (click)="gotoNone()">
-                      <i class="fa-solid fa-edit"></i>
-                    </button>
                     <button class="btn btn-sm btn-outline-danger" (click)="gotoNone()">
                       <i class="fa-solid fa-trash"></i>
                     </button>
-                    <button *ngIf="rowIndex+1==1" class="btn btn-sm btn-outline-warning" style="margin-left: 10px" (click)="gotoNone()">
+                    <!-- <button *ngIf="rowIndex+1==1" class="btn btn-sm btn-outline-warning" style="margin-left: 10px" (click)="gotoNone()">
                       <i class="fa-solid fa-warning"></i>
-                    </button>
+                    </button> -->
 <!--                    <i   class="fa-solid fa-warning" style="color:yellow;"></i>-->
                   </td>
                 </tr>
@@ -120,4 +142,18 @@
     </div>
   </div>
 </div>
-
+<div class="mjflex">
+  <p-dialog header="Usuarios" [(visible)]="isShowModalColaborators" [style]="{width: '700px',height:'400px'}">
+      <div>
+          <app-cargaarchivo></app-cargaarchivo>
+      </div>
+      <ng-template pTemplate="footer">
+          <button class="btn btn-outline-secondary" (click)="closeViewColaborators()">Aceptar <span
+                  class="pi pi-times"></span>
+          </button>
+          <button class="btn btn-outline-secondary" (click)="closeViewColaborators()">Cancelar <span
+                  class="pi pi-times"></span>
+          </button>
+      </ng-template>
+  </p-dialog>
+</div>

@@ -29,6 +29,7 @@ import { MenuModule } from 'primeng/menu';
 import { LocalesComponent } from './modules/general/locales/locales.component';
 import { UbicacioneslocalesComponent } from './modules/general/ubicacioneslocales/ubicacioneslocales.component';
 import { CrearubicacionesComponent } from './modules/general/crearubicaciones/crearubicaciones.component';
+import { CargaarchivoComponent } from './modules/general/cargaarchivo/cargaarchivo.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { CrearubicacionesComponent } from './modules/general/crearubicaciones/cr
     LocalesComponent,
     UbicacioneslocalesComponent,
     CrearubicacionesComponent,
+    CargaarchivoComponent,
   ],
   imports: [
     BrowserModule,

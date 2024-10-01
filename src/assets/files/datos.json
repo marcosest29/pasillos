@@ -540,33 +540,33 @@
   ],
   "ubicaciones": [
     {
-      "base": "Pasillo 1",
-      "completa": "Pasillo 1 Lado Izquierdo, a continuacion de Seccion Moda",
-      "clasificaciones": "1004-Aceites",
+      "base": "SUPERMERCADOS",
+      "completa": "Pasillo 1 ",
+      "clasificaciones": "NO",
       "subclasificaciones": "Todos",
       "contiene":"Variedad de aceites nacionales en sus distintas presentaciones",
       "picking": 1
     },
     {
-      "base": "Pasillo 2",
-      "completa": "Pasillo 2 Lado Izquierdo, a continuacion de Seccion Moda",
-      "clasificaciones": "1004-Aceites",
+      "base": "SUPERMERCADOS",
+      "completa": "Pasillo 2 ",
+      "clasificaciones": "NO",
       "subclasificaciones": "Todos",
       "contiene":"Variedad de aceites nacionales en sus distintas presentaciones",
       "picking": 2
     },
     {
-      "base": "Pasillo 3",
-      "completa": "Pasillo 3 Lado Izquierdo, a continuacion de Seccion Moda",
-      "clasificaciones": "1004-Aceites",
+      "base": "TIPTI",
+      "completa": "DARK SHELF",
+      "clasificaciones": "SI",
       "subclasificaciones": "Todos",
       "contiene":"Variedad de aceites nacionales en sus distintas presentaciones",
       "picking":3
     },
     {
-      "base": "Pasillo 4",
-      "completa": "Pasillo 4 Lado Izquierdo, a continuacion de Seccion Moda",
-      "clasificaciones": "1004-Aceites",
+      "base": "SUPERMERCADOS",
+      "completa": "Pasillo 4 ",
+      "clasificaciones": "NO",
       "subclasificaciones": "Todos",
       "contiene":"Variedad de aceites nacionales en sus distintas presentaciones",
       "picking": 4
@@ -656,19 +656,19 @@
   ],
   "referenciasdetalle": [
     {
-      "nombre": "Seccion Moda Caballeros"
+      "nombre": "A1"
     },
     {
-      "nombre": "Seccion Abastos"
+      "nombre": "A2"
     },
     {
-      "nombre": "Seccion Comestibles"
+      "nombre": "A3"
     },
     {
-      "nombre": "Seccion Carnes"
+      "nombre": "A4"
     },
     {
-      "nombre": "Seccion Lacteos"
+      "nombre": "H"
     }
   ],
   "operativos": [

@@ -1,0 +1,39 @@
+<div class="mjflex">
+    <div class="col">
+        <div class="p-fluid">
+            <p>Seleccionar archivo</p>
+            <p-fileUpload 
+            mode="basic" 
+            chooseLabel="Seleccionar archivo" 
+            chooseIcon="pi pi-upload"
+            name="demo[]" 
+            url="https://www.primefaces.org/cdn/api/upload.php" 
+            accept="image/*" 
+            maxFileSize="1000000" ></p-fileUpload>
+        </div>
+        <div class="col-md-7 d-flex" style="margin-top:10px ;">
+            <div class="col">
+                <div class="row">
+                    <label class="row-4">
+                        <input type="radio" name="option" value="AGREGAR" [(ngModel)]="selected" />
+                        AGREGAR
+                        </label>
+                </div>
+                <div class="row">
+                    <label class="row-4">
+                        <input type="radio" name="option" value="REEMPLAZAR" [(ngModel)]="selected" />
+                        REEMPLAZAR
+                        </label>
+                </div>
+                <div class="row">
+                    <label class="row-4">
+                        <input type="radio" name="option" value="INACTIVAR" [(ngModel)]="selected" />
+                        INACTIVAR
+                        </label>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
